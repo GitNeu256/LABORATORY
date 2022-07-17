@@ -33,9 +33,19 @@ public class main extends Plugin {
             });
         }); 
         
+        Events.on(PlayerLeave.class, event -> {
+            if (!votes.contains(event.player.uuid())) return;
+
+            votes.remove(event.player.uuid());
+            
+            int cur = votes.size();
+            
+            int req = (int) Math.ceil(ratio * Groups.player.size());
+            
+            Call.sendMessage("[[scarlet]GAME[white]]: " + event.player.name() + " left the server. Total votes: [cyan]" + cur + "[accent], need votes: [cyan]" +  req);
+        });
     }
 
-    //Этот метод содержит все слеш-команды для игроков
     @Override
     public void registerClientCommands(CommandHandler handler) {
         handler.<Player>register("sart", "Start the game", (args, player) -> {
@@ -44,7 +54,7 @@ public class main extends Plugin {
                 return;
             }
 
-            votes.add(layer.uuis());
+            votes.add(player.uuis());
             
             int cur = this.votes.size();
 
@@ -61,7 +71,7 @@ public class main extends Plugin {
             Call.infoToast("[scarlet]3", 1f);
             Call.infoToast("[scarlet]2", 1f);
             Call.infoToast("[scarlet]1", 1f);
-            return text;
+            return null;
         });
     }
 }
