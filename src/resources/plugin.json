@@ -1,0 +1,11 @@
+{
+  "name": "LABORATORY",
+  "displayName": "LABORATORY",
+  "description": "LABORATORY - new mindustry game mode.",
+  "author": "[red][I.C.][white]IC-0npc",
+  "main": "laboratory.main",
+  "hidden": false,
+  "java": true,
+  "version": "1.0",
+  "minGameVersion": 129.1
+}
