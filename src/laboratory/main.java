@@ -48,7 +48,7 @@ public class main extends Plugin {
 
     @Override
     public void registerClientCommands(CommandHandler handler) {
-        handler.<Player>register("sart", "Start the game", (args, player) -> {
+        handler.<Player>registeregister("sart", "Start the game", (args, player) -> {
             if (votes.contains(player.uuid())) {
                 player.sendMessage("You have already voted to start the game.");
                 return;
