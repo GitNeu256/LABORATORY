@@ -21,7 +21,7 @@ repositories {
 
 ext {
     def json = new JsonSlurper()
-    def pluginFile = file("${sourceSets.main.resources.srcDirs.last()}/plugin.json")
+    def pluginFile = file("${sourceSets.main.resources.srcDirs.last()}/mod.json")
     def plugin = json.parseText(pluginFile.text)
 
     artifactBaseName = plugin.name + (!plugin.version.isEmpty() ? "-$plugin.version" : "")
