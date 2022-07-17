@@ -58,7 +58,7 @@ public class main extends Plugin {
             
             int cur = this.votes.size();
 
-            int req = (int)Math.ceil(ratio * Group.player.size());
+            int req = (int)Math.ceil(ratio * Groups.player.size());
 
             Call.sendMessage("[[scarlet]GAME[white]]: " + player.name() + " [accent]voted to start the game. Total votes: [cyan]" + cur + "[accent], needed votes: [cyan]" +  req);
             
