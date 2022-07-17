@@ -74,6 +74,7 @@ public class main extends Plugin {
 
             Groups.unit.each(Unit::kill);
             Call.infoToast("Game started");
+            return null;
         });
     }
 }
