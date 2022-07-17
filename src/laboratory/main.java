@@ -54,7 +54,7 @@ public class main extends Plugin {
                 return;
             }
 
-            votes.add(player.uuis());
+            votes.add(player.uuid());
             
             int cur = this.votes.size();
 
