@@ -73,7 +73,7 @@ public class main extends Plugin {
             Call.infoToast("[scarlet]1", 1f);
 
             Groups.unit.each(Unit::kill);
-            Call.infoToast("Game started");
+            Call.infoToast("Game started", 10f);
             return null;
         });
     }
