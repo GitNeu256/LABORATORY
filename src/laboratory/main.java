@@ -25,8 +25,8 @@ public class main extends Plugin {
     public void init() {
         Events.run(Trigger.update, () -> {
             Groups.player.each(player -> {
-                if (player.dead() || (player.unit().type != UnitTypes.dagger && player.unit().spawnedByCore)) {
-                    Unit unit = UnitTypes.dagger.spawn(player.team(), player.team().core().x + 40f, player.team().core().y);
+                if (player.dead() || (player.unit().type != UnitTypes.crawler && player.unit().spawnedByCore)) {
+                    Unit unit = UnitTypes.crawler.spawn(player.team(), player.team().core().x + 40f, player.team().core().y);
                     unit.spawnedByCore = true;
                     player.unit(unit);
                 }
@@ -62,7 +62,7 @@ public class main extends Plugin {
 
             Call.sendMessage("[[scarlet]GAME[white]]: " + player.name() + " [accent]voted to start the game. Total votes: [cyan]" + cur + "[accent], needed votes: [cyan]" +  req);
             
-            if (cur == req) return;
+            if (cur <= req) return;
 
             this.votes.clear();
             
