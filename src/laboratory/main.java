@@ -25,7 +25,7 @@ public class main extends Plugin {
     public void init() {
         Events.run(Trigger.update, () -> {
             Groups.player.each(player -> {
-                if (player.dead() || (player.unit().type != UnitTypes.crawler && player.unit(). spawnedByCore)) {
+                if (player.dead() || (player.unit().type != UnitTypes.dagger && player.unit().spawnedByCore)) {
                     Unit unit = UnitTypes.dagger.spawn(player.team(), player.team().core().x + 40f, player.team().core().y);
                     unit.spawnedByCore = true;
                     player.unit(unit);
