@@ -33,7 +33,7 @@ public class main extends Plugin {
             });
         }); 
         
-        Events.on(PlayerLeave.class, event -> {
+        Events.on(PlayerLeave.class, e -> {
             Player player = e.player;
 
             int cur = this.votes.size();
