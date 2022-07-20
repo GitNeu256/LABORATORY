@@ -45,7 +45,7 @@ public class main extends Plugin {
             }
         });
 
-        Event.on(GameOverEvent.class, e -> {
+        Events.on(GameOverEvent.class, e -> {
             this.votes.clear();
         });
     }
