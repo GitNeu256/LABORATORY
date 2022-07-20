@@ -65,11 +65,11 @@ public class main extends Plugin {
 
             this.votes.clear();
             
-            Call.infoToast("[scarlet]5", 1f);
-            Call.infoToast("[scarlet]4", 1f);
-            Call.infoToast("[scarlet]3", 1f);
-            Call.infoToast("[scarlet]2", 1f);
-            Call.infoToast("[scarlet]1", 1f);
+            Call.infoToast("[scarlet]5", 3f);
+            Call.infoToast("[scarlet]4", 3f);
+            Call.infoToast("[scarlet]3", 3f);
+            Call.infoToast("[scarlet]2", 3f);
+            Call.infoToast("[scarlet]1", 3f);
 
             Call.infoToast("Game started", 10f);
         });
