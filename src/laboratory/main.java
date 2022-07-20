@@ -34,36 +34,35 @@ public class main extends Plugin {
         }); 
         
         Events.on(PlayerLeave.class, event -> {
-            if (!votes.contains(event.player.uuid())) return;
+            Player player = e.player;
 
-            votes.remove(event.player.uuid());
-            
-            int cur = votes.size();
-            
-            int req = (int) Math.ceil(ratio * Groups.player.size());
-            
-            Call.sendMessage("[[scarlet]GAME[white]]: " + event.player.name() + " left the server. Total votes: [cyan]" + cur + "[accent], need votes: [cyan]" +  req);
+            int cur = this.votes.size();
+            int req = (int) Math.ceil(mapratio * Group.player.size());
+
+            if (votes.contains(player.uuid())) {
+                votes.remove(player.uuid());
+                Call.sendMessage("[[scarlet]GAME[white]]: " + event.player.name() + " left the server. Total votes: [cyan]" + cur + "[accent], need votes: [cyan]" +  req);
+            }
+        });
+
+        Event.on(GameOverEvent.class, e -> {
+            this.votes.clear();
         });
     }
 
     @Override
     public void registerClientCommands(CommandHandler handler) {
         handler.<Player>register("start", "Start the game.", (args, player) -> {
-            if (votes.contains(player.uuid())) {
-                player.sendMessage("You have already voted to start the game.");
-                return;
-            }
-
             votes.add(player.uuid());
-            
             int cur = this.votes.size();
-
-            int req = (int)Math.ceil(ratio * Groups.player.size());
+            int req = (int) Math.ceil(ratio * Group.player.size());
 
             Call.sendMessage("[[scarlet]GAME[white]]: " + player.name() + " [accent]voted to start the game. Total votes: [cyan]" + cur + "[accent], needed votes: [cyan]" +  req);
             
-            if (cur <= req) return;
-
+            if (cur < req) {
+                return;
+            }
+            
             this.votes.clear();
             
             Call.infoToast("[scarlet]5", 1f);
