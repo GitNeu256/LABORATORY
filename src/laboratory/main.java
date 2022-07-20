@@ -41,7 +41,7 @@ public class main extends Plugin {
 
             if (votes.contains(player.uuid())) {
                 votes.remove(player.uuid());
-                Call.sendMessage("[[scarlet]GAME[white]]: " + event.player.name() + " left the server. Total votes: [cyan]" + cur + "[accent], need votes: [cyan]" +  req);
+                Call.sendMessage("[[scarlet]GAME[white]]: " + player.name() + " left the server. Total votes: [cyan]" + cur + "[accent], need votes: [cyan]" +  req);
             }
         });
 
