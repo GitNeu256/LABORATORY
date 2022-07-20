@@ -37,7 +37,7 @@ public class main extends Plugin {
             Player player = e.player;
 
             int cur = this.votes.size();
-            int req = (int) Math.ceil(mapratio * Group.player.size());
+            int req = (int) Math.ceil(ratio * Groups.player.size());
 
             if (votes.contains(player.uuid())) {
                 votes.remove(player.uuid());
@@ -55,14 +55,14 @@ public class main extends Plugin {
         handler.<Player>register("start", "Start the game.", (args, player) -> {
             votes.add(player.uuid());
             int cur = this.votes.size();
-            int req = (int) Math.ceil(ratio * Group.player.size());
+            int req = (int) Math.ceil(ratio * Groups.player.size());
 
             Call.sendMessage("[[scarlet]GAME[white]]: " + player.name() + " [accent]voted to start the game. Total votes: [cyan]" + cur + "[accent], needed votes: [cyan]" +  req);
             
             if (cur < req) {
                 return;
             }
-            
+
             this.votes.clear();
             
             Call.infoToast("[scarlet]5", 1f);
