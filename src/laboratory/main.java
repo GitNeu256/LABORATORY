@@ -20,15 +20,20 @@ public class main extends Plugin {
 
     private final HashSet<String> votes = new HashSet<>();
     private double ratio = 1;
+    private bool spawn = True;
+
+    private ArrayList<String> member = new ArrayList<String>();
 
     @Override
     public void init() {
         Events.run(Trigger.update, () -> {
             Groups.player.each(player -> {
-                if (player.dead() || (player.unit().type != UnitTypes.crawler && player.unit().spawnedByCore)) {
-                    Unit unit = UnitTypes.crawler.spawn(player.team(), player.team().core().x + 40f, player.team().core().y);
-                    unit.spawnedByCore = true;
-                    player.unit(unit);
+                if (spawn == True) {
+                    if (player.dead() || (player.unit().type != UnitTypes.crawler && player.unit().spawnedByCore)) {
+                        Unit unit = UnitTypes.crawler.spawn(player.team(), player.team().core().x + 40f, player.team().core().y);
+                        unit.spawnedByCore = true;
+                        player.unit(unit);
+                    }
                 }
             });
         }); 
@@ -54,6 +59,7 @@ public class main extends Plugin {
     public void registerClientCommands(CommandHandler handler) {
         handler.<Player>register("start", "Start the game.", (args, player) -> {
             votes.add(player.uuid());
+            member.add(player.uuid());
             int cur = this.votes.size();
             int req = (int) Math.ceil(ratio * Groups.player.size());
 
@@ -64,12 +70,13 @@ public class main extends Plugin {
             }
 
             this.votes.clear();
-            
-            Call.infoToast("[scarlet]5", 10f);
-            Call.infoToast("[scarlet]4", 10f);
-            Call.infoToast("[scarlet]3", 10f);
-            Call.infoToast("[scarlet]2", 10f);
-            Call.infoToast("[scarlet]1", 10f);
+
+            private bool spawn = Fasle;
+
+            int monster = Math.random() * member.size();
+            String player_monster = member.get(monster.nextInt(member.size()));
+
+            System.out.println(player_monster);
 
             Call.infoToast("Game started", 10f);
         });
