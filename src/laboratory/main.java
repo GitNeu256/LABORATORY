@@ -21,7 +21,7 @@ public class main extends Plugin {
 
     private final HashSet<String> votes = new HashSet<>();
     private double ratio = 1;
-    private bool spawn = true;
+    boolean spawn = true;
 
     private ArrayList<String> member = new ArrayList<String>();
 
@@ -29,7 +29,7 @@ public class main extends Plugin {
     public void init() {
         Events.run(Trigger.update, () -> {
             Groups.player.each(player -> {
-                if (spawn == True) {
+                if (spawn == true) {
                     if (player.dead() || (player.unit().type != UnitTypes.crawler && player.unit().spawnedByCore)) {
                         Unit unit = UnitTypes.crawler.spawn(player.team(), player.team().core().x + 40f, player.team().core().y);
                         unit.spawnedByCore = true;
