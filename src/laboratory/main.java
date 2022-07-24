@@ -17,10 +17,11 @@ import mindustry.entities.*;
 import java.util.*;
 
 public class main extends Plugin {
+    Random rand = new Random();
 
     private final HashSet<String> votes = new HashSet<>();
     private double ratio = 1;
-    private bool spawn = True;
+    private bool spawn = true;
 
     private ArrayList<String> member = new ArrayList<String>();
 
@@ -71,10 +72,12 @@ public class main extends Plugin {
 
             this.votes.clear();
 
-            int monster = Math.random() * member.size();
-            String player_monster = member.get(monster.nextInt(member.size()));
+            spawn = false;
 
-            System.out.println(player_monster);
+            int randomIndex = rand.nextInt(member.size());
+            String monster = member.get(randomIndex);
+
+            System.out.println(monster);
 
             Call.infoToast("Game started", 10f);
         });
