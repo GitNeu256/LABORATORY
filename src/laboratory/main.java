@@ -77,7 +77,8 @@ public class main extends Plugin {
             int randomIndex = rand.nextInt(member.size());
             String monster = member.get(randomIndex);
 
-            System.out.println(monster);
+            Player player = Groups.player.find(p -> p.uuid().equals(monster));
+            player.team(crux.team());
 
             Call.infoToast("Game started", 10f);
         });
