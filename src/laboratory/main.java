@@ -71,8 +71,6 @@ public class main extends Plugin {
 
             this.votes.clear();
 
-            spawn = Fasle;
-
             int monster = Math.random() * member.size();
             String player_monster = member.get(monster.nextInt(member.size()));
 
