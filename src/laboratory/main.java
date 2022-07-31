@@ -80,7 +80,7 @@ public class main extends Plugin {
             Player player_monster = Groups.player.find(p -> p.uuid().equals(monster));
             player_monster.team(Team.crux);
 
-            if (player_monster.unit().type != UnitTypes.Atrax && player_monster.unit().spawnedByCore) {
+            if (player_monster.unit().type != UnitTypes.atrax && player_monster.unit().spawnedByCore) {
                 Unit unit = UnitTypes.crawler.spawn(player.team(), 50f, 50f);
                 unit.spawnedByCore = false;
                 player.unit(unit);
