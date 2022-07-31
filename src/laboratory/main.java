@@ -81,7 +81,7 @@ public class main extends Plugin {
             player_monster.team(Team.crux);
 
             if (player_monster.unit().type != UnitTypes.atrax && player_monster.unit().spawnedByCore) {
-                Unit unit = UnitTypes.crawler.spawn(player.team(), 50f, 50f);
+                Unit unit = UnitTypes.atrax.spawn(player.team(), 50f, 50f);
                 unit.spawnedByCore = false;
                 player.unit(unit);
             }
