@@ -86,7 +86,9 @@ public class main extends Plugin {
                 player.unit(unit);
             }
 
-            player_monster.infoToast("I'm Object-67B");
+            player_monster.sendMessage("I'm Object-67B");
+
+            Call.infoToast("[red]Game started", 10f);
         });
     }
 }
