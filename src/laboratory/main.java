@@ -81,9 +81,9 @@ public class main extends Plugin {
             player_monster.team(Team.crux);
 
             if (player_monster.unit().type != UnitTypes.atrax && player_monster.unit().spawnedByCore) {
-                Unit unit = UnitTypes.atrax.spawn(player.team(), 50f, 50f);
+                Unit unit = UnitTypes.atrax.spawn(player_monster.team(), 50f, 50f);
                 unit.spawnedByCore = false;
-                player.unit(unit);
+                player_monster.unit(unit);
             }
 
             player_monster.sendMessage("I'm Object-67B");
