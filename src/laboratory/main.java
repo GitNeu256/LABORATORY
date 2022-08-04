@@ -27,6 +27,10 @@ public class main extends Plugin {
 
     @Override
     public void init() {
+        Timer.schedule(() -> {
+            System.out.println("Working!");
+        }, 0f, 0.2f);
+
         Events.run(Trigger.update, () -> {
             Groups.player.each(player -> {
                 if (spawn == true) {
