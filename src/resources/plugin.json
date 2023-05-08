@@ -2,7 +2,7 @@
   "name": "LABORATORY",
   "displayName": "LABORATORY",
   "description": "LABORATORY - new mindustry game mode.",
-  "author": "[red][I.C.][white]IC-0npc",
+  "author": "Neu",
   "main": "laboratory.main",
   "hidden": false,
   "java": true,
